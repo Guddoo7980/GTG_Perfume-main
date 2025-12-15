@@ -1,0 +1,421 @@
+<section class="product-container">
+    <!-- left column: image gallery -->
+    <div class="product-gallery">
+        <div class="main-image-wrapper">
+            <button class="gallery-arrow left-arrow" id="prevBtn">&#10094;</button>
+            <div class="image-container">
+                <img
+                    id="mainImage"
+                    src="assets/perfume-1.jpg"
+                    alt="GTG Perfume Main"
+                    loading="lazy"
+                >
+            </div>
+            <button class="gallery-arrow right-arrow" id="nextBtn">&#10095;</button>
+            <div class="gallery-dots" id="dotsContainer"></div>
+        </div>
+        <!-- thumbnails (populated by js) -->
+        <div class="thumbnails-row" id="thumbnailContainer"></div>
+    </div>
+    <!-- right column: product details & form -->
+    <div class="product-details">
+        <h1 class="product-title">GTG Perfumes</h1>
+        <div class="rating">
+            <span class="stars">★★★★★</span>
+            <span class="review-count">4.7 (999+ reviews)</span>
+        </div>
+        <p class="product-desc">
+            Experience the timeless allure backed by modern artistry, captured in every bottle of our fragrance.
+        </p>
+        <form id="addToCartForm">
+            <!-- option 1: single subscription -->
+            <div class="sub-option-wrapper">
+                <div class="sub-header" id="headerSingle">
+                    <label class="radio-label-main">
+                        <input
+                            type="radio"
+                            name="subscription_type"
+                            value="single"
+                            checked
+                        >
+                        <span class="radio-custom"></span>
+                        <span class="sub-text">Single Subscription</span>
+                    </label>
+                    <div class="price-display">
+                        <span class="current-price">$99.99</span>
+                        <span class="old-price">$146</span>
+                    </div>
+                </div>
+                <div class="sub-content" id="contentSingle">
+                    <p class="section-label">Choose a Fragrance</p>
+                    <div class="fragrance-grid">
+                        <label class="frag-option">
+                            <input
+                                type="radio"
+                                name="fragrance_single"
+                                value="original"
+                                checked
+                            >
+                            <div class="frag-card">
+                                <span class="tag">BEST SELLER</span>
+                                <div class="card-top">
+                                    <span class="radio-circle"></span>
+                                    <span class="card-name">Original</span>
+                                </div>
+                                <img
+                                    src="./assets/perfume.png"
+                                    alt="Original"
+                                    class="frag-img-sm"
+                                    loading="lazy"
+                                >
+                            </div>
+                        </label>
+                        <label class="frag-option">
+                            <input type="radio" name="fragrance_single" value="lily">
+                            <div class="frag-card">
+                                <div class="card-top">
+                                    <span class="radio-circle"></span>
+                                    <span class="card-name">Lily</span>
+                                </div>
+                                <img src="./assets/perfume1.png" alt="Lily" class="frag-img-sm">
+                            </div>
+                        </label>
+                        <label class="frag-option">
+                            <input type="radio" name="fragrance_single" value="rose">
+                            <div class="frag-card">
+                                <div class="card-top">
+                                    <span class="radio-circle"></span>
+                                    <span class="card-name">Rose</span>
+                                </div>
+                                <img
+                                    src="./assets/rose.png"
+                                    alt="Rose"
+                                    class="frag-img-sm"
+                                    loading="lazy"
+                                >
+                            </div>
+                        </label>
+                    </div>
+                    <p class="section-label">What's Included:</p>
+                    <div class="frequency-grid">
+                        <label class="freq-option">
+                            <input
+                                type="radio"
+                                name="frequency_single"
+                                value="30days"
+                                checked
+                            >
+                            <div class="freq-card">
+                                <div class="card-top">
+                                    <span class="radio-circle"></span>
+                                    <span class="card-name">Every 30 Days</span>
+                                </div>
+                                <br>
+                                <img
+                                    alt="Every 30 Days"
+                                    src="./assets/perfume.png"
+                                    class="freq-img"
+                                    loading="lazy"
+                                >
+                            </div>
+                        </label>
+                        <label class="freq-option wide-option">
+                            <input type="radio" name="frequency_single" value="onetime">
+                            <div class="freq-card wide-card">
+                                <div class="card-top">
+                                    <span class="radio-circle"></span>
+                                    <span class="card-name">
+                                        One Time
+                                        <strong>(Free)</strong>
+                                    </span>
+                                </div>
+                                <br>
+                                <div class="mini-group">
+                                    <img alt="perfume" src="./assets/perfume.png" loading="lazy">
+                                    <img alt="perfume" src="./assets/perfume1.png" loading="lazy">
+                                    <img alt="perfume" src="./assets/rose.png" loading="lazy">
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <ul class="perks-list">
+                        <li>
+                            <img
+                                class="sealCheck"
+                                src="./assets/SealCheck.png"
+                                alt="SealCheck"
+                                loading="lazy"
+                            >
+                            1 Bottle Shipped Monthly
+                        </li>
+                        <li>
+                            <img
+                                class="sealCheck"
+                                src="./assets/SealCheck.png"
+                                alt="SealCheck"
+                                loading="lazy"
+                            >
+                            <span>
+                                <strong>Free</strong>
+                                Sampler For Original, Lily And Rose Fragrances
+                            </span>
+                        </li>
+                        <li>
+                            <img
+                                class="sealCheck"
+                                src="./assets/SealCheck.png"
+                                alt="SealCheck"
+                                loading="lazy"
+                            >
+                            <strong>50% OFF Shipping</strong>
+                        </li>
+                        <li>
+                            <img
+                                class="sealCheck"
+                                src="./assets/SealCheck.png"
+                                alt="SealCheck"
+                                loading="lazy"
+                            >
+                            Pause Or Cancel Anytime After 3 Months Minimum
+                        </li>
+                        <li>
+                            <img
+                                class="sealCheck"
+                                src="./assets/SealCheck.png"
+                                alt="SealCheck"
+                                loading="lazy"
+                            >
+                            30 Day Money Back Guarantee*
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- option 2: double subscription -->
+            <div class="sub-option-wrapper">
+                <div class="sub-header" id="headerDouble">
+                    <label class="radio-label-main">
+                        <input type="radio" name="subscription_type" value="double">
+                        <span class="radio-custom"></span>
+                        <span class="sub-text">Double Subscription</span>
+                    </label>
+                    <div class="price-display">
+                        <span class="current-price">$169.99</span>
+                        <span class="old-price">$292</span>
+                    </div>
+                </div>
+                <div class="sub-content hidden" id="contentDouble">
+                    <!-- choice 1 -->
+                    <p class="section-label">Choose Fragrance 1</p>
+                    <div class="fragrance-grid">
+                        <label class="frag-option">
+                            <input
+                                type="radio"
+                                name="fragrance_double_1"
+                                value="original"
+                                checked
+                            >
+                            <div class="frag-card">
+                                <span class="tag">BEST SELLER</span>
+                                <div class="card-top">
+                                    <span class="radio-circle"></span>
+                                    <span class="card-name">Original</span>
+                                </div>
+                                <img
+                                    src="./assets/perfume.png"
+                                    alt="Original"
+                                    class="frag-img-sm"
+                                    loading="lazy"
+                                >
+                            </div>
+                        </label>
+                        <label class="frag-option">
+                            <input type="radio" name="fragrance_double_1" value="lily">
+                            <div class="frag-card">
+                                <div class="card-top">
+                                    <span class="radio-circle"></span>
+                                    <span class="card-name">Lily</span>
+                                </div>
+                                <img
+                                    src="./assets/perfume1.png"
+                                    alt="Lily"
+                                    class="frag-img-sm"
+                                    loading="lazy"
+                                >
+                            </div>
+                        </label>
+                        <label class="frag-option">
+                            <input type="radio" name="fragrance_double_1" value="rose">
+                            <div class="frag-card">
+                                <div class="card-top">
+                                    <span class="radio-circle"></span>
+                                    <span class="card-name">Rose</span>
+                                </div>
+                                <img
+                                    src="./assets/rose.png"
+                                    alt="Rose"
+                                    class="frag-img-sm"
+                                    loading="lazy"
+                                >
+                            </div>
+                        </label>
+                    </div>
+                    <!-- choice 2 -->
+                    <p class="section-label">Choose Fragrance 2</p>
+                    <div class="fragrance-grid">
+                        <label class="frag-option">
+                            <input type="radio" name="fragrance_double_2" value="original">
+                            <div class="frag-card">
+                                <span class="tag">BEST SELLER</span>
+                                <div class="card-top">
+                                    <span class="radio-circle"></span>
+                                    <span class="card-name">Original</span>
+                                </div>
+                                <img
+                                    src="./assets/perfume.png"
+                                    alt="Original"
+                                    class="frag-img-sm"
+                                    loading="lazy"
+                                >
+                            </div>
+                        </label>
+                        <label class="frag-option">
+                            <input
+                                type="radio"
+                                name="fragrance_double_2"
+                                value="lily"
+                                checked
+                            >
+                            <div class="frag-card">
+                                <div class="card-top">
+                                    <span class="radio-circle"></span>
+                                    <span class="card-name">Lily</span>
+                                </div>
+                                <img
+                                    src="./assets/perfume1.png"
+                                    alt="Lily"
+                                    class="frag-img-sm"
+                                    loading="lazy"
+                                >
+                            </div>
+                        </label>
+                        <label class="frag-option">
+                            <input type="radio" name="fragrance_double_2" value="rose">
+                            <div class="frag-card">
+                                <div class="card-top">
+                                    <span class="radio-circle"></span>
+                                    <span class="card-name">Rose</span>
+                                </div>
+                                <img
+                                    src="./assets/rose.png"
+                                    alt="Rose"
+                                    class="frag-img-sm"
+                                    loading="lazy"
+                                >
+                            </div>
+                        </label>
+                    </div>
+                    <!-- what's included -->
+                    <p class="section-label">What's Included:</p>
+                    <div class="frequency-grid">
+                        <label class="freq-option">
+                            <input
+                                type="radio"
+                                name="frequency_double"
+                                value="30days"
+                                checked
+                            >
+                            <div class="freq-card">
+                                <span>Every 30 Days</span>
+                                <br>
+                                <img
+                                    title="Every 30 Days"
+                                    src="./assets/perfume.png"
+                                    class="freq-img"
+                                    loading="lazy"
+                                >
+                            </div>
+                        </label>
+                        <label class="freq-option wide-option">
+                            <input type="radio" name="frequency_double" value="onetime">
+                            <div class="freq-card wide-card">
+                                <div class="card-top">
+                                    <span class="radio-circle"></span>
+                                    <span class="card-name">
+                                        One Time
+                                        <strong>(Free)</strong>
+                                    </span>
+                                </div>
+                                <br>
+                                <div class="mini-group">
+                                    <img alt="perfume" src="./assets/perfume1.png" loading="lazy">
+                                    <img alt="perfume" src="./assets/rose.png" loading="lazy">
+                                    <img alt="perfume" src="./assets/perfume.png" loading="lazy">
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <ul class="perks-list">
+                        <li>
+                            <img
+                                class="sealCheck"
+                                src="./assets/SealCheck.png"
+                                alt="SealCheck"
+                                loading="lazy"
+                            >
+                            1 Bottle Shipped Monthly
+                        </li>
+                        <li>
+                            <img
+                                class="sealCheck"
+                                src="./assets/SealCheck.png"
+                                alt="SealCheck"
+                                loading="lazy"
+                            >
+                            1 Bottle Shipped Monthly
+                        </li>
+                        <li>
+                            <img
+                                class="sealCheck"
+                                src="./assets/SealCheck.png"
+                                alt="SealCheck"
+                                loading="lazy"
+                            >
+                            <span>
+                                <strong>Free</strong>
+                                Sampler For Original, Lily And Rose Fragrances
+                            </span>
+                        </li>
+                        <li>
+                            <img
+                                class="sealCheck"
+                                src="./assets/SealCheck.png"
+                                alt="SealCheck"
+                                loading="lazy"
+                            >
+                            <strong>50% OFF Shipping</strong>
+                        </li>
+                        <li>
+                            <img
+                                class="sealCheck"
+                                src="./assets/SealCheck.png"
+                                alt="SealCheck"
+                                loading="lazy"
+                            >
+                            Pause Or Cancel Anytime After 3 Months Minimum
+                        </li>
+                        <li>
+                            <img
+                                class="sealCheck"
+                                src="./assets/SealCheck.png"
+                                alt="SealCheck"
+                                loading="lazy"
+                            >
+                            30 Day Money Back Guarantee*
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="#" id="addToCartBtn" class="add-to-cart-btn">Add to Cart - $99.99</a>
+        </form>
+    </div>
+</section>

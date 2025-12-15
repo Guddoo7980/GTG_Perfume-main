@@ -1,0 +1,77 @@
+<!-- components/stats.html -->
+<style>
+    .stats-section {
+        background: linear-gradient(180deg, #032E15 0%, #016630 100%);
+        color: #ffffff;
+        padding: 100px 20px;
+        width: 100%;
+        position: relative;
+    }
+
+    .stats-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        text-align: center;
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .stat-number {
+        font-size: 4rem;
+        font-weight: 800;
+        line-height: 1;
+        background: linear-gradient(135deg, #ffffff 0%, #a8e6cf 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .stat-description {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 500;
+    }
+
+    @media (max-width: 1024px) {
+        .stats-container { grid-template-columns: repeat(2, 1fr); gap: 60px; }
+    }
+
+    @media (max-width: 600px) {
+        .stats-section { padding: 60px 20px; }
+        .stats-container { grid-template-columns: 1fr; gap: 50px; }
+        .stat-number { font-size: 3.5rem; }
+    }
+</style>
+<section class="stats-section" id="stats">
+    <div class="stats-container">
+        <!-- item 1 -->
+        <div class="stat-item">
+            <div class="stat-number" data-target="89" data-suffix="%">0%</div>
+            <p class="stat-description">Organic Ingredients</p>
+        </div>
+        <!-- item 2 -->
+        <div class="stat-item">
+            <div class="stat-number" data-target="78" data-suffix="h">0%</div>
+            <p class="stat-description">Scent Longevity</p>
+        </div>
+        <!-- item 3 -->
+        <div class="stat-item">
+            <div class="stat-number" data-target="89" data-suffix="k+">0k+</div>
+            <p class="stat-description">Happy Customers</p>
+        </div>
+        <!-- item 4 -->
+        <div class="stat-item">
+            <div class="stat-number" data-target="90" data-suffix="">0</div>
+            <p class="stat-description">Awards Won</p>
+        </div>
+    </div>
+</section>

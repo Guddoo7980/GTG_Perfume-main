@@ -1,0 +1,571 @@
+:root {
+  --primary-green: #0b3d2b;
+  --light-green-bg: #f0fdf4;
+  --star-color: #28a745;
+
+  --gradient-green: linear-gradient(90deg, #032e15 0%, #016630 100%);
+
+  --gradient-hover: linear-gradient(90deg, #016630 0%, #032e15 100%);
+
+  --white: #ffffff;
+  --grey-border: #eee;
+  --text-grey: #555;
+
+  --font-main: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: var(--font-main);
+  color: #333;
+}
+
+#root {
+  width: 100%;
+  display: block;
+}
+
+/*  3. global utilities & buttons */
+
+.btn-primary {
+  background: var(--gradient-green);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(3, 46, 21, 0.3);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: var(--gradient-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(3, 46, 21, 0.4);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-content button,
+.hero-content .btn-primary {
+  width: fit-content;
+  min-width: 150px;
+  align-self: flex-start;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* 4. product section layout */
+.product-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  padding: 0 20px;
+}
+
+/* --- left column: gallery --- */
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.main-image-wrapper {
+  position: relative;
+  width: 100%;
+  background: #f7f7f7;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.main-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* gallery arrows */
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--primary-green);
+  z-index: 2;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-arrow:hover {
+  background: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.left-arrow {
+  left: 20px;
+}
+.right-arrow {
+  right: 20px;
+}
+
+/* gallery dots */
+.gallery-dots {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 2;
+}
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--primary-green);
+  border-radius: 50%;
+  margin: 0 6px;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s;
+}
+.dot.active {
+  background: var(--primary-green);
+  transform: scale(1.1);
+}
+
+/* gallery thumbnails */
+.thumbnails-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.thumb-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  transition: var(--transition);
+  background: #f7f7f7;
+}
+.thumb-img:hover {
+  opacity: 0.8;
+}
+.thumb-img.active {
+  opacity: 1;
+  border-color: var(--primary-green);
+}
+
+/* --- right column: product details --- */
+.product-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title {
+  margin-top: 0;
+  color: var(--primary-green);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.rating {
+  color: var(--star-color);
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.stars {
+  letter-spacing: 2px;
+}
+
+.product-desc {
+  color: var(--text-grey);
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* subscription form ui */
+.subscription-banner {
+  background: linear-gradient(90deg, #00c950 0%, #008236 50%, #032e15 100%);
+
+  color: var(--white);
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border-radius: 6px 6px 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.sub-option-wrapper {
+  border: 1px solid var(--grey-border);
+  border-top: none;
+  margin-bottom: 15px;
+  border-radius: 0 0 6px 6px;
+}
+
+.sub-option-wrapper:nth-of-type(2) {
+  border-top: 1px solid var(--grey-border);
+  border-radius: 6px;
+}
+
+.sub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+.radio-label-main {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: #444;
+  font-size: 1.05rem;
+}
+
+.radio-label-main input {
+  display: none;
+}
+
+/* custom radio circle */
+.radio-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  margin-right: 12px;
+  position: relative;
+  transition: var(--transition);
+}
+
+/* checked state for main radio */
+.radio-label-main input:checked + .radio-custom {
+  border-color: var(--primary-green);
+}
+.radio-label-main input:checked + .radio-custom::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  background: var(--primary-green);
+  border-radius: 50%;
+}
+
+.price-display {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.old-price {
+  text-decoration: line-through;
+  color: #aaa;
+  margin-left: 8px;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+/* expandable content area */
+.sub-content {
+  padding: 0 20px 20px 20px;
+  border-top: 1px solid #f5f5f5;
+  animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-label {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 15px 0 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* grid for fragrances and frequencies */
+.fragrance-grid,
+.frequency-grid {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.frag-option input,
+.freq-option input {
+  display: none;
+}
+
+.frag-card,
+.freq-card {
+  border: 1px solid var(--grey-border);
+  border-radius: 8px;
+  padding: 10px;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.frag-card {
+  width: 100px;
+  height: 110px;
+}
+
+/* active selection style small cards */
+.frag-option input:checked + .frag-card,
+.freq-option input:checked + .freq-card {
+  border-color: var(--primary-green);
+  border-width: 2px;
+  box-shadow: 2px 4px 12px rgba(11, 61, 43, 0.15);
+}
+
+.freq-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+.frag-img-sm {
+  height: 45px;
+  margin-bottom: 8px;
+  object-fit: contain;
+}
+
+.tag {
+  position: absolute;
+  top: -8px;
+  background: var(--primary-green);
+  color: white;
+  font-size: 9px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.mini-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.mini-group img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* perks list */
+.perks-list {
+  list-style: none;
+  margin: 25px 0;
+  font-size: 0.9rem;
+  color: var(--text-grey);
+}
+.perks-list li {
+  color: #032e15;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+.perks-list li::before {
+  content: "";
+  color: var(--primary-green);
+  font-weight: bold;
+  margin-right: 10px;
+}
+.perks-list strong {
+  color: #333;
+}
+
+.sealCheck {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+/* dynamic add to cart button */
+.add-to-cart-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(180deg, #032e15 0%, #016630 100%);
+  color: var(--white);
+  text-align: center;
+  padding: 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: var(--transition);
+  box-shadow: 0 4px 10px rgba(3, 46, 21, 0.2);
+  margin-top: 20px;
+}
+
+.add-to-cart-btn:hover {
+  background: var(--gradient-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(3, 46, 21, 0.3);
+}
+
+/*  5. responsive adjustments  */
+@media (max-width: 900px) {
+  .product-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 20px;
+  }
+
+  .main-image-wrapper {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content .btn-primary {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+  }
+
+  .product-container {
+    padding: 0 15px; /* standard mobile side padding */
+    gap: 20px; /* reduce vertical gap between gallery and text */
+    margin-top: 20px;
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* 2. adjust main image height & width */
+  .main-image-wrapper {
+    height: 350px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  /* 3. fix thumbnails layout align left to match text */
+  .thumbnails-row {
+    justify-content: flex-start;
+    gap: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+  }
+
+  .thumb-img {
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+  }
+
+  /* 4. tighter product text */
+  .product-details {
+    padding: 0;
+  }
+
+  .product-title {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    margin-top: 0;
+  }
+
+  .rating {
+    margin-bottom: 15px;
+  }
+
+  /* 5. fix form spacing */
+  .sub-option-wrapper {
+    margin-bottom: 15px;
+  }
+
+  /* ensure the "most popular" banner hits the edges of the form */
+  .subscription-banner {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-image-wrapper {
+    height: 300px;
+  }
+  .thumb-img {
+    width: 60px;
+    height: 60px;
+  }
+  .freq-card {
+    width: 100%;
+    justify-content: center;
+  }
+}

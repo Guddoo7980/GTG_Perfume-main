@@ -1,0 +1,296 @@
+<style>
+    /* --- container --- */
+    .choice-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 80px 20px;
+        background: #ffffff; 
+    }
+
+    .choice-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #0b3d2b;
+        margin-bottom: 60px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* --- table wrapper --- */
+    .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        border-radius: 24px;
+        box-shadow: none; 
+        background: white;
+        border: 1px solid #e5e7eb; 
+    }
+
+    /* --- table styling --- */
+    .compare-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 700px;
+    }
+
+    /* header */
+    .compare-table th {
+        background: white;
+        padding: 40px 10px 20px 10px;
+        text-align: center;
+        vertical-align: bottom;
+        border-bottom: 1px solid #f0f0f0;
+        transition: background-color 0.2s ease;
+    }
+
+    /* labels column */
+    .compare-table th:first-child,
+    .compare-table td:first-child {
+        text-align: left;
+        padding-left: 40px;
+        width: 250px;
+        font-weight: 700;
+        color: #0b3d2b;
+        font-size: 1.1rem;
+    }
+
+    .compare-table td:first-child {
+        color: #555;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+    /* body cells */
+    .compare-table td {
+        padding: 25px 10px;
+        text-align: center;
+        border-bottom: 1px solid #f0f0f0;
+        color: #333;
+        transition: background-color 0.2s ease;
+    }
+
+    .compare-table tr:last-child td { border-bottom: none; }
+
+    /* --- images --- */
+    .product-image {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 16px;
+        margin-bottom: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .product-name {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #0b3d2b;
+        display: block;
+    }
+
+    /* --- icons & scores --- */
+    .check-icon, .cross-icon {
+        width: 32px; height: 32px; border-radius: 50%;
+        display: inline-flex; align-items: center; justify-content: center;
+        font-weight: bold; font-size: 0.9rem;
+        transition: all 0.3s ease; 
+    }
+
+    /* green check */
+    .check-icon , .check-icon.light {  color: rgb(157, 152, 152); }
+   
+
+    /* gray border cross */
+    .cross-icon { 
+        background: transparent;
+        border: 1px solid #d1d5db;
+        color: #9ca3af;
+    }
+    
+    .score { font-weight: 800; font-size: 1.2rem; color: #0b3d2b; }
+
+  
+    /* 1. column background */
+    .col-hover {
+        background-color: #e6f4ea !important; 
+    }
+
+    /* 2. change tick icon background on hover */
+    td.col-hover .check-icon {
+        background-color: #0b3d2b; 
+        color: white;
+        transform: scale(1.1); 
+        box-shadow: 0 4px 10px rgba(11, 61, 43, 0.2);
+    }
+
+    /* 3. change cross icon border on hover */
+    td.col-hover .cross-icon {
+        border-color: #9ca3af;
+        color: #6b7280;
+        background-color: rgba(255,255,255,0.5);
+    }
+
+    
+    thead tr th.col-hover { border-top-left-radius: 16px; border-top-right-radius: 16px; }
+    tbody tr:last-child td.col-hover { border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; }
+
+    /* --- cta --- */
+    .cta-section { text-align: center; padding: 60px 20px; }
+</style>
+<div class="choice-container" id="choice">
+    <h1 class="choice-title">Why GTG is the #1 Choice</h1>
+    <div class="table-wrapper">
+        <table class="compare-table" id="comparisonTable">
+            <thead>
+                <tr>
+                    <th>Qualities</th>
+                    <!-- col 1 -->
+                    <th>
+                        <img
+                            src="./assets/hero.png"
+                            class="product-image"
+                            alt="GTG"
+                            loading="lazy"
+                        >
+                        <span class="product-name">GTG</span>
+                    </th>
+                    <!-- col 2 -->
+                    <th>
+                        <img
+                            src="./assets/arose.jpg"
+                            class="product-image"
+                            alt="Arose"
+                            loading="lazy"
+                        >
+                        <span class="product-name">Arose</span>
+                    </th>
+                    <!-- col 3 -->
+                    <th>
+                        <img
+                            src="./assets/bella.jpg"
+                            class="product-image"
+                            alt="Bella"
+                            loading="lazy"
+                        >
+                        <span class="product-name">Bella</span>
+                    </th>
+                    <!-- col 4 -->
+                    <th>
+                        <img
+                            src="./assets/daises.jpg"
+                            class="product-image"
+                            alt="Daisies"
+                            loading="lazy"
+                        >
+                        <span class="product-name">Daisies</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Potency</td>
+                    <td>
+                        <span class="score">10x</span>
+                    </td>
+                    <td>1x</td>
+                    <td>1x</td>
+                    <td>
+                        <span class="score">10x</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Longevity</td>
+                    <td>
+                        <span class="check-icon">✓</span>
+                    </td>
+                    <td>
+                        <span class="cross-icon">✕</span>
+                    </td>
+                    <td>
+                        <span class="cross-icon">✕</span>
+                    </td>
+                    <td>
+                        <span class="check-icon light">✓</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sillage</td>
+                    <td>
+                        <span class="check-icon">✓</span>
+                    </td>
+                    <td>
+                        <span class="cross-icon">✕</span>
+                    </td>
+                    <td>
+                        <span class="cross-icon">✕</span>
+                    </td>
+                    <td>
+                        <span class="cross-icon">✕</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Design Score</td>
+                    <td>
+                        <span class="score">9</span>
+                    </td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Blend Harmony</td>
+                    <td>
+                        <span class="check-icon">✓</span>
+                    </td>
+                    <td>
+                        <span class="cross-icon">✕</span>
+                    </td>
+                    <td>
+                        <span class="cross-icon">✕</span>
+                    </td>
+                    <td>
+                        <span class="cross-icon">✕</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Skin Safe</td>
+                    <td>
+                        <span class="check-icon">✓</span>
+                    </td>
+                    <td>
+                        <span class="cross-icon">✕</span>
+                    </td>
+                    <td>
+                        <span class="cross-icon">✕</span>
+                    </td>
+                    <td>
+                        <span class="cross-icon">✕</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Price vs Quality</td>
+                    <td>
+                        <span class="check-icon">✓</span>
+                    </td>
+                    <td>
+                        <span class="check-icon light">✓</span>
+                    </td>
+                    <td>
+                        <span class="cross-icon">✕</span>
+                    </td>
+                    <td>
+                        <span class="check-icon light">✓</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="cta-section">
+        <!-- uses the global .btn-primary from your global.css -->
+        <button class="btn-primary">Try It Risk-Free</button>
+    </div>
+</div>

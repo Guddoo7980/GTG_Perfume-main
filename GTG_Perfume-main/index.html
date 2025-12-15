@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GTG Perfumes</title>
+        <link rel="stylesheet" href="./css/global.css">
+    </head>
+    <body>
+        <div id="root"></div>
+        <!-- 1. component loader -->
+        <script src="js/componentLoader.js"></script>
+        <!-- 2. logic for collection accordion -->
+        <script src="js/collection.js"></script>
+        <!-- 2. logic for product accordion -->
+        <script src="js/product.js"></script>
+        <!-- 3. logic for Stats  -->
+        <script src="js/stats.js"></script>
+        <!-- 3. logic for choice  -->
+        <script src="js/choice.js"></script>
+        <script>
+    loadComponents([
+      "components/hero.html",
+      "components/product.html",
+      "components/collection.html",
+      "components/stats.html",
+      "components/choice.html",
+      "components/footer.html"
+    ])
+    .then(() => {
+        console.log("All components loaded!");
+        
+        // init product section
+        if (typeof initProduct === 'function') initProduct();
+        
+        // init collection accordion
+        if (typeof initCollection === 'function')  initCollection();
+           
+        
+        // init stats 
+        if (typeof initStats === 'function')   initStats();
+          
+        
+
+        // init choice
+        if (typeof initChoice === 'function') initChoice();
+
+    })
+    .catch(err => {
+        console.error("Error loading components", err);
+    });
+        </script>
+    </body>
+</html>
